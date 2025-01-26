@@ -24,16 +24,30 @@
     -->
 
 
+    <h1 id="title">Quiz per ingenui</h1>
+
     <div class="quiz">
-        <div id="start">
-            <input type="button" id="avvio" value="AVVIA GIOCO">
+        <div class="box">
+            <div id="start">
+                <input type="button" id="avvio" value="AVVIA QUIZ">
         </div>
-        <div class="domanda">
-            <h2 id="question"></h2>
-            <form action="">
-                <input type="text" name="rispostaUtente"/>
-                <input type="submit" value="Rispondi" name="invia"/>
-            </form>
+    
+
+            <div class="boxDomanda">
+                <h2 id="question"></h2>
+                <form action="">
+                    <input type="text" name="rispostaUtente" placeholder="Scrivi la tua risposta" required/>
+                    <input type="submit" value="Rispondi" name="invia"/>
+                </form>
+
+                <h2 class="boxPunteggio">Punteggio: <span id="punteggio">0</span></h2>
+            </div>
+        
+        <div class="n_domanda">
+            <h2><span id="nDomanda">1</span>/5</h2>
+        </div>
+
+    
         </div>
     </div>
 
