@@ -1,0 +1,29 @@
+/*Layer per sfndo aggiuntivo*/
+.sec_layer{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*Classi di aggiunta post-iterazione utentee*/
+.corretto{
+    transition: 0.5s;
+    background-color: rgb(0, 162, 43);
+    opacity: 0.7;
+}
+.sbagliato{
+    transition: 0.5s;
+    background-color: rgb(162, 132, 0);
+    opacity: 0.7;
+}
+.end{
+    transition: 0.5s;
+    background-color: rgb(0, 162, 157);
+    opacity: 0.7;
+}

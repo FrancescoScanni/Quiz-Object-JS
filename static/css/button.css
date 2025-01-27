@@ -1,0 +1,21 @@
+/*Button di avvios*/
+
+#avvio{  
+    position: relative;
+    width: 15vw;
+    height: 7vh;
+    z-index: 2;
+    padding: 12px 24px;
+    font-size: 20px;
+    font-weight: bold;
+    color: wheat;
+    border: solid 2px wheat;
+    background: linear-gradient(90deg, #4b6cb7, #182848);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+#avvio:hover {
+  transform: translateY(-6px);
+  color:white;
+}

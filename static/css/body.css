@@ -1,0 +1,15 @@
+
+/*Stili del body*/
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0,63,255);
+    background: linear-gradient(90deg, rgba(0,63,255,1) 0%, rgba(166,0,0,1) 100%);
+    position: relative;
+    z-index: 1;
+}

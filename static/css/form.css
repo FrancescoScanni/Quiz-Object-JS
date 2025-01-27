@@ -1,0 +1,21 @@
+
+/*CSS form*/
+form {
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+form input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+  }
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+  }

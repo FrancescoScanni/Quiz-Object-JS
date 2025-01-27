@@ -1,0 +1,37 @@
+
+.boxPunteggio{/*Paragrafo mostra-punti*/
+    margin-top: 3vh;
+    color: wheat;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px;
+    border: solid 3px white;
+    border-radius: 5px;
+}
+
+.box{ /*Blocco button-domanda*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxDomanda{ /*Blocco domanda e form*/
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.n_domanda{ /*Numero della domanda*/
+    color: white;
+    position: absolute;
+    width: 40vw;
+    height: 50vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end; 
+    margin-right: 5vw;
+}
