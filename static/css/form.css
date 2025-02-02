@@ -19,3 +19,10 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background-color: #0056b3;
   }
+
+
+  @media(max-width: 760px){
+    form{
+      margin-bottom: 0;
+    }
+  }

@@ -11,3 +11,10 @@
     background: linear-gradient(90deg, rgba(0,209,255,0.500437675070028) 0%, rgba(187,86,0,1) 100%);
     border-radius: 20px;
 }
+
+@media(max-width: 760px){
+    .quiz{
+        width: 80vw;
+        height: 40vh;
+    }
+}

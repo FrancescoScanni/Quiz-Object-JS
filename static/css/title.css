@@ -1,4 +1,4 @@
-/*Titolo*/
+/*Titolo e domanda*/
 
 #title{
     width: 100vw;
@@ -11,4 +11,17 @@
     color: wheat;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 5rem;
+}
+#question{
+    font-size: 1.75vw;
+}
+
+@media (max-width: 760px) {
+    #title{
+        font-size: 10vw;
+        padding-top: 10vw;
+    }
+    #question{
+        font-size: 1.75vh;
+    }
 }

@@ -19,3 +19,9 @@
   transform: translateY(-6px);
   color:white;
 }
+
+@media(max-width: 760px){
+  #avvio{
+    width: 50vw;
+  }
+}

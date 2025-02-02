@@ -27,3 +27,9 @@
     background-color: rgb(0, 162, 157);
     opacity: 0.7;
 }
+
+@media(max-wodth: 760px){
+    .sec-layer{
+        height: 100vh;
+    }
+}

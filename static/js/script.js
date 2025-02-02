@@ -15,41 +15,58 @@ let i=0
 let resettaInput
 
 
+window.addEventListener("load", function(){
+    avvia.addEventListener("click",function(){
+        avvia.style.opacity=0
+        boxNDomanda.style.visibility="visible"
+        boxPunti.style.visibility="visible"
+        avvia.style.zIndex=1
+        tot=0
+        punti.innerHTML=tot
+        spawnQuestion(i)
+    })
+    quiz.style.visibility="hidden"
+    boxNDomanda.style.visibility="hidden"
+    boxPunti.style.visibility="hidden"
+})
+
+
+
 //ARRAY DI OGGETTI (DIZIONARI - COPPIE CHIAVE-VALORE)
 let questions = [  
     {
         "n_domanda": 1,
-        "testo_domanda": "Qual è il fiume più lungo al mondo?",
+        "testo_domanda": "Qual è il fiume più lungo al mondo? (1pt)",
         "risposta_utente": "",
         "risposta_corretta": "nilo",
         "punteggio": 1
     },
     {
         "n_domanda": 2,
-        "testo_domanda": "In quale anno è avvenuto il primo sbarco sulla Luna?",
+        "testo_domanda": "In quale anno è avvenuto l'Allunaggio? (1pt)",
         "risposta_utente": "",
         "risposta_corretta": "1969",
         "punteggio": 1
     },
     {
         "n_domanda": 3,
-        "testo_domanda": "Qual è il capoluogo del Molise?",
+        "testo_domanda": "Qual è il capoluogo del Molise? (1pt)",
         "risposta_utente": "",
         "risposta_corretta": "campobasso",
         "punteggio": 1
     },
     {
         "n_domanda": 4,
-        "testo_domanda": "Quanti pianeti ci sono nel sistema solare?",
+        "testo_domanda": "Quanti pianeti ha il sistema solare? (1pt)",
         "risposta_utente": "",
         "risposta_corretta": "8",
         "punteggio": 1
     },
     {
         "n_domanda": 5,
-        "testo_domanda": "Di che colore era il cavallo bianco di Napoleone?",
+        "testo_domanda": "Il colore del cavallo bianco di Napoleone? (2pt)",
         "risposta_utente": "",
-        "risposta_corretta": "blu",
+        "risposta_corretta": "blu", //scherzetto
         "punteggio": 2
     },
 ]
@@ -63,14 +80,15 @@ function spawnQuestion(i){
     question.innerHTML=questions[i].testo_domanda
     quiz.addEventListener("submit",mantieniDomanda)  //la funzione fa si che non si duplichi l'event listener e che dunque non si callcolino più punti
 }
-function mantieniDomanda(){
+
+function mantieniDomanda(event){
     event.preventDefault()
     questions[i].risposta_utente=document.querySelector("[name=rispostaUtente]").value
     questions[i].risposta_utente=sanitize(questions[i].risposta_utente)
 
     //GIUSTO
     if(questions[i].risposta_utente==questions[i].risposta_corretta){
-        console.log("evvai")
+        console.log("evvai") //debug
         tot=tot+questions[i].punteggio  
         sec_layer.classList.add("corretto")  
         setTimeout(function(){
@@ -80,7 +98,7 @@ function mantieniDomanda(){
         },1500)
     }
     else{  //SBAGLIATO
-        console.log("Noooooo")
+        console.log("Noooooo") //debug
         sec_layer.classList.add("sbagliato") 
         setTimeout(function(){
             sec_layer.classList.remove("sbagliato") 
@@ -101,8 +119,8 @@ function mantieniDomanda(){
                 boxNDomanda.style.visibility="hidden"
                 boxPunti.style.visibility="hidden"
                 question.style.visibility="hidden"
-                nDomanda=1
                 i=0
+                nDomanda.innerHTML=i+1 //reset numero ddomanda
                 sec_layer.classList.add("end")
             setTimeout(function(){
                 bloccoFinali.innerHTML="Fine. Hai totalizzato "+tot+" punti."
@@ -117,21 +135,11 @@ function mantieniDomanda(){
         }  
     },1500) 
 }
+
 function sanitize(risposta){
     return risposta.trim().toLowerCase()
 }
 
 
 //MAIN--------------
-avvia.addEventListener("click",function(){
-    avvia.style.opacity=0
-    boxNDomanda.style.visibility="visible"
-    boxPunti.style.visibility="visible"
-    avvia.style.zIndex=1
-    tot=0
-    punti.innerHTML=tot
-    spawnQuestion(i)
-})
-quiz.style.visibility="hidden"
-boxNDomanda.style.visibility="hidden"
-boxPunti.style.visibility="hidden"
+console.log("Gioco avviato. ")
