@@ -85,9 +85,10 @@ function mantieniDomanda(event){
     event.preventDefault()
     questions[i].risposta_utente=document.querySelector("[name=rispostaUtente]").value
     questions[i].risposta_utente=sanitize(questions[i].risposta_utente)
-
+    console.log("debug")
     //GIUSTO
     if(questions[i].risposta_utente==questions[i].risposta_corretta){
+        resettaInput=document.querySelector("[name=rispostaUtente]").value=null
         console.log("evvai") //debug
         tot=tot+questions[i].punteggio  
         sec_layer.classList.add("corretto")  
@@ -98,6 +99,7 @@ function mantieniDomanda(event){
         },1500)
     }
     else{  //SBAGLIATO
+        resettaInput=document.querySelector("[name=rispostaUtente]").value=null
         console.log("Noooooo") //debug
         sec_layer.classList.add("sbagliato") 
         setTimeout(function(){
@@ -111,6 +113,7 @@ function mantieniDomanda(event){
             resettaInput=document.querySelector("[name=rispostaUtente]").value=null
             i++
             nDomanda.innerHTML=i+1 
+            
             spawnQuestion(i)  
         } 
         else{ //GIOCO FINITO
