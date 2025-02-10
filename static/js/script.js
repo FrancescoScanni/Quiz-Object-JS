@@ -113,10 +113,11 @@ function mantieniDomanda(event){
             resettaInput=document.querySelector("[name=rispostaUtente]").value=null
             i++
             nDomanda.innerHTML=i+1 
-            
+            resettaInput=document.querySelector("[name=rispostaUtente]").value=null
             spawnQuestion(i)  
         } 
         else{ //GIOCO FINITO
+            console.log("rrty")
             bloccoFinali.innerHTML=null
                 quiz.style.visibility="hidden"
                 boxNDomanda.style.visibility="hidden"
@@ -125,6 +126,7 @@ function mantieniDomanda(event){
                 i=0
                 nDomanda.innerHTML=i+1 //reset numero ddomanda
                 sec_layer.classList.add("end")
+                
             setTimeout(function(){
                 bloccoFinali.innerHTML="Fine. Hai totalizzato "+tot+" punti."
             },300)
