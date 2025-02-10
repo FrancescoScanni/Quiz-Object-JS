@@ -13,6 +13,14 @@
 @import url("static/css/quiz.css");
 
 
+#riepilogo{
+    width: 40vw;
+    height: 50vh;
+    background-color: red;
+    opacity: 0.3;
+    position: absolute;
+}
+
 
 
 

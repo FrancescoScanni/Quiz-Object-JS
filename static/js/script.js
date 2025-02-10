@@ -10,13 +10,17 @@ let punti=document.querySelector("#punteggio")
 let boxPunti=document.querySelector(".boxPunteggio")
 let bloccoFinali=document.querySelector("#bloccoFine")
 let puntiFine=document.querySelector("#puntiFinali")
+let rispDate=document.querySelector("#risposteDate")
+let rispGiuste=document.querySelector("#risposteGiuste")
 let tot=0;
 let i=0
-let resettaInput
-
+let risposteDate=[]
+let risposteGiuste=[]
 
 window.addEventListener("load", function(){
     avvia.addEventListener("click",function(){
+        risposteDate=[]
+        risposteGiuste=[]
         avvia.style.opacity=0
         boxNDomanda.style.visibility="visible"
         boxPunti.style.visibility="visible"
@@ -25,9 +29,12 @@ window.addEventListener("load", function(){
         punti.innerHTML=tot
         spawnQuestion(i)
     })
+    risposteGiuste.push(" "+questions[i].risposta_corretta)
     quiz.style.visibility="hidden"
     boxNDomanda.style.visibility="hidden"
     boxPunti.style.visibility="hidden"
+    rispDate.style.visibility="hidden"
+    rispGiuste.style.visibility="hidden"
 })
 
 
@@ -85,6 +92,7 @@ function mantieniDomanda(event){
     event.preventDefault()
     questions[i].risposta_utente=document.querySelector("[name=rispostaUtente]").value
     questions[i].risposta_utente=sanitize(questions[i].risposta_utente)
+    risposteDate.push(" "+questions[i].risposta_utente)
     console.log("debug")
     //GIUSTO
     if(questions[i].risposta_utente==questions[i].risposta_corretta){
@@ -112,12 +120,12 @@ function mantieniDomanda(event){
         if(i<4){ //GIOCO CONTINUA
             resettaInput=document.querySelector("[name=rispostaUtente]").value=null
             i++
+            risposteGiuste.push(" "+questions[i].risposta_corretta)
             nDomanda.innerHTML=i+1 
             resettaInput=document.querySelector("[name=rispostaUtente]").value=null
             spawnQuestion(i)  
         } 
         else{ //GIOCO FINITO
-            console.log("rrty")
             bloccoFinali.innerHTML=null
                 quiz.style.visibility="hidden"
                 boxNDomanda.style.visibility="hidden"
@@ -129,6 +137,10 @@ function mantieniDomanda(event){
                 
             setTimeout(function(){
                 bloccoFinali.innerHTML="Fine. Hai totalizzato "+tot+" punti."
+                rispDate.style.visibility="visible"
+                rispGiuste.style.visibility="visible"
+                rispDate.innerHTML="Risposte date: "+risposteDate
+                rispGiuste.innerHTML="Versione corretta: "+risposteGiuste
             },300)
             
             setTimeout(function(){
@@ -136,6 +148,8 @@ function mantieniDomanda(event){
                 sec_layer.classList.remove("end")
                 avvia.style.opacity=1
                 avvia.style.zIndex=2
+                rispDate.style.visibility="hidden"
+                rispGiuste.style.visibility="hidden"
             },3000)    
         }  
     },1500) 
